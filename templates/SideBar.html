@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Door Lock Face Recognition </title>
+    <link rel="stylesheet" href="../static/sd.css">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="section">
+            <div class="top_navbar">
+                <div class="select">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="sidebar">
+            <div class="profile">
+                <img src="images/admin.jpg" alt="profile_picture">
+                <h3>Admin</h3>
+            </div>
+            <ul>
+                <li>
+                    <a href="/livecamera">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Live Camera</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/listpeople">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">People</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/report">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/CaptureGallery">
+                        <span class="icon"><i class="fas fa-image"></i></span>
+                        <span class="item">CaptureGallery</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/addpeople">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">Add People</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        var select = document.querySelector(".select");
+        select.addEventListener("click", function() {
+            document.querySelector("body").classList.toggle("active");
+        })
+    </script>
+</body>
+
+</html>

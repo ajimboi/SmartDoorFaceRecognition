@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gallery {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .capture {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .capture img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .capture-details {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .delete-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    {% include 'SideBar.html' %}
+    <div class="gallery">
+        {% for capture in captures %}
+        <div class="capture">
+            {{ capture[0] }}
+            <img src="{{ url_for('static', filename='capture/' + capture[0]) }}" alt="Capture Image">
+            <div class="capture-details">
+                <p>Day: {{ capture[1] }}</p>
+                <button class="delete-button" onclick="deleteCapture(this)">Delete</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

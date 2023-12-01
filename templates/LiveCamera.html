@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Camera Feed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #video-container {
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #controls {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        #grant-access {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        #deny-access {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    {% include 'SideBar.html' %}
+    <div id="video-container">
+        <h1>Smart Door System</h1>
+        <img src="{{ url_for('video_feed') }}" alt="Live Camera Feed">
+    </div>
+
+    <form method="post" action="/grant_access" enctype="multipart/form-data">
+        <div id="controls">
+            <button id="grant-access" class="btn" onclick="grantAccess()">Grant Access</button>
+        </div>
+
+        <input type="hidden" id="captured-image" name="captured_image">
+    </form>
+
+    <script>
+        function grantAccess() {
+            // Make an asynchronous POST request to the server
+            fetch('/grant_access', {
+                method: 'POST'
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Display the response from the server in the console
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    
+</body>
+</html>

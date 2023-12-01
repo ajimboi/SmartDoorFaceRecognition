@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search by Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {% include 'SideBar.html' %}
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search by Name">
+        <button class="search-button" onclick="searchByName()">Search</button>
+    </div>
+
+    <div class="search-results">
+        <h2>Search Results</h2>
+        <p>No results found</p> <!-- Initial message, will be updated with search results -->
+    </div>
+
+    <script>
+        function searchByName() {
+            // Get the input value
+            const searchTerm = document.getElementById("searchInput").value;
+
+            // Implement your search logic here, e.g., searching through a list of names
+            // For this example, we'll just show a message
+            const searchResults = document.querySelector(".search-results p");
+            if (searchTerm.trim() === "") {
+                searchResults.textContent = "Please enter a name to search.";
+            } else {
+                // Replace this with your actual search logic
+                searchResults.textContent = "No results found.";
+            }
+        }
+    </script>
+</body>
+</html>

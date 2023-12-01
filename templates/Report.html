@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .report {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .info img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .info p {
+            margin: 0;
+        }
+
+        .button-container {
+            text-align: right;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .print-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    {% include 'SideBar.html' %}
+    <div class="report">
+        <div class="header">
+            <h1>Visitor Report</h1>
+        </div>
+
+        <!-- Search Button -->
+        <div class="search-container">
+            <button class="search-button" onclick="searchByDate()">Search by Date & Time</button>
+        </div>
+        {% for report in reports %}
+        <div class="info">
+            <img src="{{ url_for('static', filename='report/' + report[0]) }}" alt="Visitor Image">
+            <div>
+                <p>Name: {{ report[2] }} </p>
+                <p>Entrance Time: {{ report[1] }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    
+        <div class="button-container">
+            <button class="print-button" onclick="window.print()">Print Report</button>
+        </div>
+
+        <div class="button-container">
+            <button class="print-button" onclick="window.print()">Print Report</button>
+        </div>
+
+        
+    </div>
+</body>
+</html>

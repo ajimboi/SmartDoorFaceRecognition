@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .upload-success {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .continue-button {
+            margin-top: 15px;
+            background-color: #3498db; /* Blue */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .continue-button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-success">
+        <h2>Upload Successful</h2>
+        <p>Your file has been successfully uploaded.</p>
+        <a  href="/addpeople" ><<button class="continue-button">Continue</button></a>
+    </div>
+</body>
+</html>
